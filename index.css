@@ -1,0 +1,52 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg-light: #eaeaeb;
+    --bg-dark: #0e0d0d;
+    --primary-color: #2563EB;
+    --text-primary: #515155;
+    --accent: #FF7F50;
+    --accent1: #14B8A6;
+    --neutral: #F3F4F6;
+    --main-header: 64px;
+    --sub-header: 32px;
+}
+
+body,
+input,
+select,
+option,
+button {
+    font-family: "Roboto", sans-serif;
+    color: var(--text-primary);
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+
+}
+
+.wrapper {
+    margin: 20px;
+    background-color: var(--bg-light);
+    width: 1200px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+}
+
+button {
+    outline: none;
+    cursor: pointer;
+    border: none;
+    background-color: var(--accent1);
+}

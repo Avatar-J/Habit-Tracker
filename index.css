@@ -13,7 +13,11 @@
     --accent1: #14B8A6;
     --neutral: #F3F4F6;
     --main-header: 64px;
+    --main-header-2: 48px;
+    --main-header-3: 30px;
     --sub-header: 32px;
+    --sub-header-1: 28px;
+    --sub-header-2: 22px;
 }
 
 body,
@@ -42,11 +46,40 @@ body {
 header {
     display: flex;
     justify-content: space-between;
+    padding: 5px;
 }
 
 button {
     outline: none;
+    padding: 10px;
+    border-radius: 5px;
     cursor: pointer;
     border: none;
-    background-color: var(--accent1);
+    background-color: var(--accent);
+}
+
+h1 {
+    font-size: var(--main-header);
+    text-align: center;
+
+}
+
+@media only screen and (max-width: 768px) {
+    h1 {
+        font-size: var(--main-header-2);
+    }
+
+    .wrapper {
+        max-width: 768px;
+    }
+}
+
+@media only screen and (max-width: 420px) {
+    h1 {
+        font-size: var(--main-header-3);
+    }
+
+    .wrapper {
+        max-width: 420px;
+    }
 }

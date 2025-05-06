@@ -1,4 +1,4 @@
-#Habit tracker 
+# Habit tracker 
 A simple and interactive habit tracker app that helps users build consistency by logging, tracking, and monitoring daily habits. Data is stored locally in the browser using `localStorage`.
 
 ---

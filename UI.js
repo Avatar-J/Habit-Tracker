@@ -1,9 +1,9 @@
-import { getWeekDates } from "./utils.js";
+import { getWeekDates, getTodayDate } from "./utils.js";
 import { habits } from "./storage.js";
 import { stateOfElements } from "./storage.js";
 
 //generate table head
-function generateTableHead() {
+function generateTableHeadForWeek() {
   const weekDates = getWeekDates();
   let th_row = ``;
   weekDates.forEach((dayObj) => {
@@ -26,12 +26,6 @@ function generateTableBody() {
          <tr>
           <td class="habit-col">${habit}</td>
           <td><input type="checkbox"/></td>
-          <td><input type="checkbox"/></td>
-          <td><input type="checkbox"/></td>
-          <td><input type="checkbox"/></td>
-          <td><input type="checkbox"/></td>
-          <td><input type="checkbox"/></td>
-          <td><input type="checkbox"/></td>
          </tr>
         `;
     });
@@ -39,4 +33,32 @@ function generateTableBody() {
   });
 }
 
-export { generateTableHead, generateTableBody };
+function generateHabit(habits) {
+  let habit_card = ``;
+  habits.forEach((item) => {
+    item.habit.forEach((habit) => {
+      habit_card += `
+         <div class="habit-container">
+          <div class="left-card">
+            <input type="checkbox" id="check-habit" />
+            <div>${habit}</div>
+          </div>
+            
+          <div class="right-card">
+          <ion-icon name="create" class="edit"></ion-icon>
+          <ion-icon name="trash" class="delete"></ion-icon>
+          </div>
+          
+          </div>
+        `;
+    });
+  });
+  document.getElementById("habits-section").innerHTML = habit_card;
+}
+
+function showDate(getTodayDate) {
+  document.querySelector(".day").innerHTML = getTodayDate().dayNum;
+  document.querySelector(".dayword").innerHTML = getTodayDate().dayWord;
+  document.querySelector(".month").innerHTML = getTodayDate().month;
+}
+export { generateHabit, showDate };

@@ -1,9 +1,11 @@
 import { habits } from "./storage.js";
-import { getWeekDates } from "./utils.js";
-import { generateTableHead, generateTableBody } from "./UI.js";
+import { getWeekDates, getTodayDate } from "./utils.js";
+import { generateHabit, showDate } from "./UI.js";
 
 const tableHead = document.getElementById("table-header");
 
-generateTableHead();
+// generateTableHead();
 
-generateTableBody();
+// generateTableBody();
+generateHabit(habits);
+showDate(getTodayDate);

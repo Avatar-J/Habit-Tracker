@@ -19,6 +19,7 @@
     --sub-header: 32px;
     --sub-header-1: 28px;
     --sub-header-2: 22px;
+    --date-font: 80px;
 }
 
 body,
@@ -82,6 +83,7 @@ h1 {
 
 h2 {
     font-size: var(--main-header-2);
+    margin-bottom: 10px;
 }
 
 .right {
@@ -141,24 +143,39 @@ h2 {
 .date-card {
     width: 200px;
     height: 200px;
-    background-color: var(--accent);
+    /* background-color: var(--accent); */
     border-radius: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     padding: 10px;
+    position: relative;
+    border: 1px solid black;
+}
+
+.center-line {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: black;
+    transform: translateY(-50%);
 }
 
 .day,
 .month {
-    font-size: var(--main-header);
+    font-size: var(--date-font);
     font-weight: 900;
+    position: absolute;
 }
 
 .description {
     font-size: var(--sub-header);
-    margin-top: 10px;
+    /* margin-top: 5px; */
+    position: absolute;
+    top: 10px;
 }
 
 .tracker {
@@ -204,6 +221,11 @@ input[type="checkbox"]:checked {
     background-position: center;
     background-repeat: no-repeat;
     border: none;
+}
+
+.filter-container {
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .category-container {

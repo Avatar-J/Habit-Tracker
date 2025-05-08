@@ -20,6 +20,7 @@
     --sub-header-1: 28px;
     --sub-header-2: 22px;
     --date-font: 80px;
+    --text-size: 18px;
 }
 
 body,
@@ -73,6 +74,7 @@ button {
     cursor: pointer;
     border: none;
     background-color: transparent;
+    font-size: var();
     /* background-color: var(--accent); */
 }
 
@@ -84,6 +86,10 @@ h1 {
 h2 {
     font-size: var(--main-header-2);
     margin-bottom: 10px;
+}
+
+h4 {
+    font-size: var(--text-size);
 }
 
 .right {
@@ -136,7 +142,7 @@ h2 {
 
 
 .habit-container {
-    width: 90%;
+    width: 95%;
     min-height: 60px;
     box-shadow: 0 0 4px 2px rgb(0, 0, 0, 0.3);
     /* background-color: var(--accent1); */
@@ -145,6 +151,10 @@ h2 {
     align-items: center;
     border-radius: 10px;
     padding-inline: 20px;
+}
+
+.habit-text {
+    font-size: var(--text-size);
 }
 
 .left-card,
@@ -199,6 +209,7 @@ h2 {
     font-size: var(--date-font);
     font-weight: 900;
     position: absolute;
+    color: black;
 }
 
 .description {
@@ -214,12 +225,20 @@ h2 {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    font-size: var(--text-size);
 
 }
 
 .card-row {
     display: flex;
     gap: 10px;
+}
+
+.habit-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-inline: 10px;
 }
 
 .tracker-card {
@@ -233,12 +252,32 @@ h2 {
     align-items: center;
 }
 
+.total-habits {
+    font-size: var(--main-header);
+    color: black;
+}
+
+.flame {
+    font-size: var(--main-header);
+    color: black;
+}
+
+.checked {
+    font-size: var(--main-header);
+    color: black;
+}
+
+.missed {
+    font-size: var(--main-header);
+    color: black;
+}
+
 input[type="checkbox"] {
     appearance: none;
     -webkit-appearance: none;
     border: 1px solid var(--primary-color);
-    width: 20px;
-    height: 20px;
+    width: 22px;
+    height: 22px;
     border-radius: 5px;
     align-items: center;
     color: var(--primary-color);
@@ -260,15 +299,22 @@ input[type="checkbox"]:checked {
 
 .category-container {
     display: flex;
+    flex-wrap: wrap;
     gap: 10px;
 }
 
 .category {
-    width: 200px;
+    width: 150px;
     margin: 10px;
-    padding: 10px;
-    border: 2px solid var(--primary-color);
+    padding: 5px;
+    border: 2px solid black;
     border-radius: 10px;
+    font-size: var(--text-size);
+}
+
+.add-habit-button {
+    font-size: var(--text-size);
+    margin-right: 60px;
 }
 
 

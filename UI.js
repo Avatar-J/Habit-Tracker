@@ -41,7 +41,7 @@ function generateHabit(habits) {
          <div class="habit-container">
           <div class="left-card">
             <input type="checkbox" id="check-habit" />
-            <div>${habit}</div>
+            <div class="habit-text">${habit}</div>
           </div>
             
           <div class="right-card">

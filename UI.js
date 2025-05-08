@@ -58,7 +58,7 @@ function generateHabit(habits) {
 
 function showDate(getTodayDate) {
   document.querySelector(".day").innerHTML = getTodayDate().dayNum;
-  document.querySelector(".dayword").innerHTML = getTodayDate().dayWord;
+  // document.querySelector(".dayword").innerHTML = getTodayDate().dayWord;
   document.querySelector(".month").innerHTML = getTodayDate().month;
 }
 export { generateHabit, showDate };

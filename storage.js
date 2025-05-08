@@ -17,10 +17,6 @@ const habits = [
     ],
   },
   {
-    category: "Social & Relationship",
-    habit: ["Call a friend", "Game night", "Check in with family"],
-  },
-  {
     category: "productivity",
     habit: ["Reduce screen time", "Clear emails", "Make a budget"],
   },

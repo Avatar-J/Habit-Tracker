@@ -31,9 +31,10 @@ button {
 }
 
 body {
-    min-height: 100vh;
+    height: 100vh;
     display: flex;
     justify-content: center;
+    overflow-y: hidden;
 
 }
 
@@ -59,6 +60,7 @@ header {
     display: flex;
     justify-content: space-between;
     padding: 5px;
+    margin-bottom: 20px;
     position: sticky;
     top: 0;
 }
@@ -69,6 +71,7 @@ button {
     border-radius: 5px;
     cursor: pointer;
     border: none;
+    background-color: transparent;
     /* background-color: var(--accent); */
 }
 
@@ -143,7 +146,7 @@ h2 {
     display: flex;
     justify-content: center;
     align-items: center;
-
+    flex-direction: column;
     padding: 10px;
 }
 
@@ -153,14 +156,69 @@ h2 {
     font-weight: 900;
 }
 
-.date-card:nth-child(1) {
-    flex-direction: column;
-}
-
-.dayword {
-    font-size: var(--sub-header-2);
+.description {
+    font-size: var(--sub-header);
     margin-top: 10px;
 }
+
+.tracker {
+    margin-top: 40px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+}
+
+.card-row {
+    display: flex;
+    gap: 10px;
+}
+
+.tracker-card {
+    width: 200px;
+    height: 200px;
+    box-shadow: 0 0 4px 2px rgb(0, 0, 0, 0.3);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    border: 1px solid var(--primary-color);
+    width: 20px;
+    height: 20px;
+    border-radius: 5px;
+    align-items: center;
+    color: var(--primary-color);
+    cursor: pointer;
+}
+
+input[type="checkbox"]:checked {
+    background-color: var(--primary-color);
+    background-image: url("./assets/icon-check.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    border: none;
+}
+
+.category-container {
+    display: flex;
+    gap: 10px;
+}
+
+.category {
+    width: 200px;
+    margin: 10px;
+    padding: 10px;
+    border: 2px solid var(--primary-color);
+    border-radius: 10px;
+}
+
 
 @media only screen and (max-width: 768px) {
     h1 {
@@ -179,8 +237,27 @@ h2 {
         font-size: var(--main-header-3);
     }
 
+    h2 {
+        font-size: var(--main-header-3);
+    }
+
     .wrapper {
         max-width: 420px;
+    }
+
+    .main-content {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        position: relative;
+    }
+
+    .right {
+        width: 100%;
+    }
+
+    .left {
+        width: 100%;
     }
 
 

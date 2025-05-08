@@ -31,7 +31,7 @@ button {
 }
 
 body {
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     overflow-y: hidden;
@@ -61,8 +61,8 @@ header {
     justify-content: space-between;
     padding: 5px;
     margin-bottom: 20px;
-    position: sticky;
-    top: 0;
+    /* position: sticky;
+    top: 0; */
 }
 
 button {
@@ -85,11 +85,17 @@ h2 {
 }
 
 .right {
-    width: 50%;
+    width: 60%;
 }
 
 .left {
     width: 30%;
+}
+
+.scrollable-div {
+    height: 700px;
+    width: 100%;
+
 }
 
 #habits-section {
@@ -98,13 +104,37 @@ h2 {
     justify-content: center;
     align-items: center;
     gap: 20px;
-    position: relative;
+    height: 600px;
+    /* background-color: #2563EB; */
+    overflow: hidden;
+    overflow-y: auto;
+    padding-top: 500px;
+    padding-bottom: 50px;
+    padding-right: 50px;
 
+}
+
+#habits-section::-webkit-scrollbar {
+    width: 8px;
+}
+
+#habits-section::-webkit-scrollbar-track {
+    background: #f0f0f0;
+    border-radius: 4px;
+}
+
+#habits-section::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+#habits-section::-webkit-scrollbar-thumb:hover {
+    background: #555;
 }
 
 
 .habit-container {
-    width: 100%;
+    width: 90%;
     min-height: 60px;
     box-shadow: 0 0 4px 2px rgb(0, 0, 0, 0.3);
     /* background-color: var(--accent1); */
@@ -233,6 +263,11 @@ input[type="checkbox"]:checked {
 }
 
 @media only screen and (max-width: 420px) {
+    body {
+        min-height: 100vh;
+
+    }
+
     h1 {
         font-size: var(--main-header-3);
     }

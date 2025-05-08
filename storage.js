@@ -1,26 +1,59 @@
-const habits = [
+const addedHabits = [
   {
     category: "health & Fitness",
-    habit: ["Drink water", "Exercise for 30 minutes", "sleep for 8 hours"],
+    habits: [
+      {
+        id: 1,
+        habit: "Drink water",
+      },
+      {
+        id: 2,
+        habit: "Exercise for 30 minutes",
+      },
+    ],
   },
   {
     category: "Personal Development",
-    habit: ["Read for one hour", "practice French", "Learn JavaScript"],
+    habits: [
+      {
+        id: 3,
+        habit: "Read for one hour",
+      },
+      {
+        id: 4,
+        habit: "practice French",
+      },
+    ],
   },
   {
     category: "Chores",
-    habit: [
-      "Wash clothes",
-      "Scrub the bathroom",
-      "Wash the dishes",
-      "Meal prep",
+    habits: [
+      {
+        id: 5,
+        habit: "Wash clothes",
+      },
+      {
+        id: 6,
+        habit: "Scrub the bathroom",
+      },
     ],
   },
   {
     category: "productivity",
-    habit: ["Reduce screen time", "Clear emails", "Make a budget"],
+    habits: [
+      {
+        id: 7,
+        habit: "Reduce screen time",
+      },
+      {
+        id: 8,
+        habit: "Clear emails",
+      },
+    ],
   },
 ];
+
+const habitsTracked = [];
 
 function stateOfElements(initialState = false) {
   let state = initialState;
@@ -35,4 +68,4 @@ function stateOfElements(initialState = false) {
     },
   };
 }
-export { habits, stateOfElements };
+export { addedHabits, stateOfElements, habitsTracked };

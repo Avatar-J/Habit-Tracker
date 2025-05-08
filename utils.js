@@ -20,11 +20,52 @@ function getWeekDates() {
 function getTodayDate() {
   const today = new Date();
 
-  const dayWord = today.toLocaleDateString("en-US", { weekday: "long" });
-  const month = String(today.getMonth() + 1).padStart(2, "0");
-  const dayNum = String(today.getDate()).padStart(2, "0");
+  const day = today.toLocaleDateString("en-US", { weekday: "long" });
+  const mm = String(today.getMonth() + 1).padStart(2, "0");
+  const dd = String(today.getDate()).padStart(2, "0");
+  const yy = today.getFullYear();
+  const date = `${dd}-${mm}-${yy}`;
 
-  return { dayWord, month, dayNum };
+  return { day, mm, dd, yy, date };
 }
 
-export { getWeekDates, getTodayDate };
+function generateID() {
+  const today = new Date();
+  const uniqueID = today.getTime();
+  return uniqueID;
+}
+
+function totalHabits(habitsObj) {
+  let total = 0;
+  habitsObj.forEach((item) => {
+    item.habits.forEach((habit) => {
+      total += 1;
+    });
+  });
+
+  return total;
+}
+
+function streakCount() {
+  let total = 0;
+  return total;
+}
+
+function missedCount() {
+  let total = 0;
+  return total;
+}
+function checkedCount() {
+  let total = 0;
+  return total;
+}
+
+export {
+  getWeekDates,
+  getTodayDate,
+  totalHabits,
+  streakCount,
+  missedCount,
+  checkedCount,
+  generateID,
+};

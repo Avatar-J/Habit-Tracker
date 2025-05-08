@@ -1,47 +1,22 @@
-import { getWeekDates, getTodayDate } from "./utils.js";
-import { habits } from "./storage.js";
-import { stateOfElements } from "./storage.js";
+import {
+  getWeekDates,
+  totalHabits,
+  streakCount,
+  checkedCount,
+  missedCount,
+} from "./utils.js";
+import { stateOfElements, habitsTracked } from "./storage.js";
 
-//generate table head
-function generateTableHeadForWeek() {
-  const weekDates = getWeekDates();
-  let th_row = ``;
-  weekDates.forEach((dayObj) => {
-    const [day, dateNum] = Object.entries(dayObj)[0];
-    th_row += `<th><div>${dateNum}</div><div>${day}</div></th>`;
-  });
-
-  const tableHeadHTML = `
-         <th class="habit-col">Habits</th>${th_row}  
-      `;
-  const tableHeaderRow = document.getElementById("table-header-row");
-  tableHeaderRow.innerHTML = tableHeadHTML;
-}
-
-function generateTableBody() {
-  let habit_row = ``;
-  habits.forEach((item) => {
-    item.habit.forEach((habit) => {
-      habit_row += `
-         <tr>
-          <td class="habit-col">${habit}</td>
-          <td><input type="checkbox"/></td>
-         </tr>
-        `;
-    });
-    document.getElementById("table-body").innerHTML = habit_row;
-  });
-}
-
-function generateHabit(habits) {
+function generateHabit(addedHabits) {
   let habit_card = ``;
-  habits.forEach((item) => {
-    item.habit.forEach((habit) => {
+  addedHabits.forEach((category) => {
+    category.habits.forEach((element) => {
+      const isChecked = stateOfElements();
       habit_card += `
          <div class="habit-container">
           <div class="left-card">
             <input type="checkbox" id="check-habit" />
-            <div class="habit-text">${habit}</div>
+            <div class="habit-text">${element.habit}</div>
           </div>
             
           <div class="right-card">
@@ -56,9 +31,39 @@ function generateHabit(habits) {
   document.getElementById("habits-section").innerHTML = habit_card;
 }
 
-function showDate(getTodayDate) {
-  document.querySelector(".day").innerHTML = getTodayDate().dayNum;
-  // document.querySelector(".dayword").innerHTML = getTodayDate().dayWord;
-  document.querySelector(".month").innerHTML = getTodayDate().month;
+function addInputListenerToChecked(id) {
+  const element = document.getElementById(id);
+  console.log(element);
 }
-export { generateHabit, showDate };
+
+function showDate(getTodayDate) {
+  document.querySelector(".day").innerHTML = getTodayDate().dd;
+  // document.querySelector(".dayword").innerHTML = getTodayDate().dayWord;
+  document.querySelector(".month").innerHTML = getTodayDate().mm;
+}
+
+function displayTotalHabits(habits) {
+  const total = totalHabits(habits);
+  document.getElementById("total-habits").textContent = total;
+}
+function displayStreakCount() {
+  const total = streakCount();
+  document.getElementById("streak_count").textContent = total;
+}
+function displayMissedCount() {
+  const total = missedCount();
+  document.getElementById("missed").textContent = total;
+}
+function displayCheckedCount() {
+  const total = checkedCount();
+  document.getElementById("checked").textContent = total;
+}
+
+export {
+  generateHabit,
+  showDate,
+  displayTotalHabits,
+  displayStreakCount,
+  displayCheckedCount,
+  displayMissedCount,
+};

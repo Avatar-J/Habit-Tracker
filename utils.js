@@ -37,8 +37,8 @@ function generateID() {
 
 function totalHabits(habitsObj) {
   let total = 0;
-  habitsObj.forEach((item) => {
-    item.habits.forEach((habit) => {
+  habitsObj.forEach((category) => {
+    category.habits.forEach((habit) => {
       total += 1;
     });
   });
@@ -46,18 +46,57 @@ function totalHabits(habitsObj) {
   return total;
 }
 
-function streakCount() {
+function streakCount(habitsObj) {
   let total = 0;
+  const isComplete = habitsObj
+    .flatMap((category) => category.habits.map((habit) => habit.isChecked))
+    .reduce((acc, isChecked) => acc && isChecked, true);
+
+  total = isComplete ? total++ : 0;
   return total;
 }
 
-function missedCount() {
+function missedCount(habitsObj) {
   let total = 0;
+  total = habitsObj
+    .flatMap((category) =>
+      category.habits.map((habit) => (habit.isChecked ? 0 : 1))
+    )
+    .reduce((acc, value) => {
+      return acc + value;
+    }, 0);
+
   return total;
 }
-function checkedCount() {
+function checkedCount(habitsObj) {
   let total = 0;
+  total = habitsObj
+    .flatMap((category) =>
+      category.habits.map((habit) => (habit.isChecked ? 1 : 0))
+    )
+    .reduce((acc, value) => {
+      return acc + value;
+    }, 0);
+
   return total;
+}
+
+function filterHabits(habitsObj, category) {
+  const result = habitsObj.filter(
+    (obj) => obj.category.toLowerCase() === category.toLowerCase()
+  );
+  return result;
+}
+
+function createHabitObjectBlueprint(habit, id) {
+  return {
+    id: id,
+    habit: habit,
+    isChecked: false,
+    toggleCheckbox: function () {
+      this.isChecked = !this.isChecked;
+    },
+  };
 }
 
 export {
@@ -68,4 +107,5 @@ export {
   missedCount,
   checkedCount,
   generateID,
+  filterHabits,
 };

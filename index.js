@@ -1,5 +1,10 @@
-import { addedHabits } from "./storage.js";
-import { getWeekDates, getTodayDate, generateID } from "./utils.js";
+import { addedHabits, stateOfElements } from "./storage.js";
+import {
+  getWeekDates,
+  getTodayDate,
+  generateID,
+  filterHabits,
+} from "./utils.js";
 import {
   generateHabit,
   showDate,
@@ -7,16 +12,17 @@ import {
   displayStreakCount,
   displayCheckedCount,
   displayMissedCount,
+  addInputListenerToChecked,
+  addListenersToFilterButtons,
 } from "./UI.js";
 
-const tableHead = document.getElementById("table-header");
+const filterState = stateOfElements();
 
-// generateTableHead();
-
-// generateTableBody();
-generateHabit(addedHabits);
+// filterHabits(addedHabits.chores);
+generateHabit(addedHabits, addInputListenerToChecked);
 showDate(getTodayDate);
 displayTotalHabits(addedHabits);
-displayStreakCount();
-displayCheckedCount();
-displayMissedCount();
+displayStreakCount(addedHabits);
+displayCheckedCount(addedHabits);
+displayMissedCount(addedHabits);
+addListenersToFilterButtons(addedHabits, filterState);

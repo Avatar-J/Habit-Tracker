@@ -215,10 +215,10 @@ main {
 }
 
 .category {
-    width: 150px;
+    width: 200px;
     padding: 5px;
     border-radius: 10px;
-    font-size: 15px;
+    font-size: 20px;
     background-color: var(--primary-color);
     color: var(--text-secondary);
 }

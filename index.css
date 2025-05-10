@@ -7,7 +7,11 @@
 :root {
     --bg-light: white;
     --bg-dark: black;
+    --bg-light: white;
+    --bg-dark: black;
     --primary-color: #2563EB;
+    --text-primary: black;
+    --text-secondary: white;
     --text-primary: black;
     --text-secondary: white;
     --accent: #FF7F50;
@@ -47,6 +51,7 @@ main {
     position: relative;
 
 }
+
 
 .wrapper {
     min-height: 100vh;
@@ -195,6 +200,16 @@ button {
     color: var(--accent);
 }
 
+#avatar {
+    color: var(--text-secondary);
+    border-radius: 40%;
+}
+
+#avatar:hover {
+    /* background-color: var(--text-secondary); */
+    color: var(--accent);
+}
+
 h1 {
     font-size: var(--main-header);
     text-align: center;
@@ -203,9 +218,12 @@ h1 {
 h2 {
     font-size: var(--sub-header);
     margin-bottom: 5px;
+    font-size: var(--sub-header);
+    margin-bottom: 5px;
 }
 
 h4 {
+    font-size: var(--sub-header);
     font-size: var(--sub-header);
 }
 
@@ -218,6 +236,7 @@ h4 {
 }
 
 .scrollable-div {
+    height: 600px;
     height: 600px;
     width: 100%;
     overflow: hidden;
@@ -268,10 +287,12 @@ h4 {
 
 #habits-section::-webkit-scrollbar-thumb {
     background: var(--text-primary);
+    background: var(--text-primary);
     border-radius: 4px;
 }
 
 #habits-section::-webkit-scrollbar-thumb:hover {
+    background: var(--text-primary);
     background: var(--text-primary);
 }
 
@@ -286,6 +307,7 @@ h4 {
     align-items: center;
     border-radius: 10px;
     padding-inline: 20px;
+    color: var(--text-primary);
     color: var(--text-primary);
 }
 
@@ -320,6 +342,7 @@ h4 {
     width: 200px;
     height: 200px;
     background-color: var(--bg-dark);
+    background-color: var(--bg-dark);
     border-radius: 20px;
     display: flex;
     justify-content: center;
@@ -328,6 +351,7 @@ h4 {
     padding: 10px;
     position: relative;
     border: 1px solid black;
+    color: var(--text-secondary);
     color: var(--text-secondary);
 }
 
@@ -338,6 +362,7 @@ h4 {
     width: 100%;
     height: 1px;
     background: var(--text-secondary);
+    background: var(--text-secondary);
     transform: translateY(-50%);
 }
 
@@ -346,6 +371,7 @@ h4 {
     font-size: var(--date-font);
     font-weight: 900;
     position: absolute;
+    color: var(--text-secondary);
     color: var(--text-secondary);
 }
 
@@ -358,11 +384,13 @@ h4 {
 
 .tracker {
     margin-top: 30px;
+    margin-top: 30px;
     width: 100%;
     display: flex;
     flex-direction: column;
     gap: 20px;
     font-size: var(--text-size);
+    padding: 5px;
     padding: 5px;
 
 }
@@ -391,6 +419,9 @@ h3 {
 }
 
 .tracker-card {
+    width: 170px;
+    height: 150px;
+    box-shadow: 0 0 3px 2px rgb(0, 0, 0, 0.2);
     width: 170px;
     height: 150px;
     box-shadow: 0 0 3px 2px rgb(0, 0, 0, 0.2);
@@ -426,15 +457,18 @@ input[type="checkbox"] {
     appearance: none;
     -webkit-appearance: none;
     border: 1px solid var(--text-primary);
+    border: 1px solid var(--text-primary);
     width: 22px;
     height: 22px;
     border-radius: 5px;
     align-items: center;
     color: var(--text-primary);
+    color: var(--text-primary);
     cursor: pointer;
 }
 
 input[type="checkbox"]:checked {
+    background-color: var(--accent);
     background-color: var(--accent);
     background-image: url("./assets/icon-check.svg");
     background-position: center;
@@ -456,6 +490,7 @@ input[type="checkbox"]:checked {
 .category {
     width: 150px;
     /* margin: 10px; */
+    /* margin: 10px; */
     padding: 5px;
     border: 2px solid black;
     border-radius: 10px;
@@ -475,6 +510,8 @@ input[type="checkbox"]:checked {
 }
 
 .add-habit-button {
+    background-color: var(--text-primary);
+    color: var(--text-secondary);
     background-color: var(--text-primary);
     color: var(--text-secondary);
     font-size: var(--text-size);

@@ -11,6 +11,8 @@
     --secondary-color: rgb(247, 197, 204);
     --text-primary: black;
     --text-secondary: white;
+    --text-primary: black;
+    --text-secondary: white;
     --accent: #FF7F50;
     --danger: red;
     --main-header: 58px;
@@ -48,6 +50,7 @@ h2 {
     font-size: var(--sub-header);
     font-weight: 900;
 }
+
 
 .wrapper {
     margin: 20px;
@@ -192,6 +195,7 @@ main {
     color: #97BC62;
 }
 
+
 .missed {
 
     color: var(--secondary-color);
@@ -308,6 +312,7 @@ a {
     border-radius: 10px;
     padding-inline: 20px;
     color: var(--text-primary);
+    color: var(--text-primary);
 }
 
 input[type="checkbox"] {
@@ -365,7 +370,6 @@ input[type="checkbox"]:checked {
     justify-content: center;
     width: 100%;
     position: relative;
-
 }
 
 .overlay {
@@ -447,7 +451,6 @@ option {
 @media only screen and (max-width: 1200px) {
     .wrapper {
         max-width: 1200px;
-
     }
 
     h1 {

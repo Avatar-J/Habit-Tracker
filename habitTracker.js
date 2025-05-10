@@ -54,7 +54,7 @@ function generateHabits(habitsArray) {
   } else {
     document.getElementById("habits-section").innerHTML = `
     <div class="no-habits">
-                        <p>No Habits. Add to track</p>
+                        <p>No habits. Add to track</p>
      </div>
     `;
   }

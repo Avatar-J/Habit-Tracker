@@ -26,4 +26,11 @@ function addListenerToForm() {
   });
 }
 
+function addListenerToCloseButton() {
+  document.getElementById("close-modal").addEventListener("click", () => {
+    window.location.href = "./index.html";
+  });
+}
+
 addListenerToForm();
+addListenerToCloseButton();

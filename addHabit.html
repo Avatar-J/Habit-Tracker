@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Habit tracker</title>
+    <link rel="stylesheet" href="./index.css" />
+</head>
+
+<body>
+    <div class="wrapper">
+        <header>
+            <h1>JUMMAI'S DASHBOARD</h1>
+            <button id="avatar">
+                <ion-icon size="large" name="person" id="person-icon"></ion-icon>
+            </button>
+
+        </header>
+
+        <div class="modal-container">
+            <div class="overlay">
+                <div class="modal">
+                    <div class="modal-header">
+                        <h2>ADD HABIT</h2>
+                        <div>
+                            <ion-icon id="close-modal" name="close"></ion-icon>
+                        </div>
+
+                    </div>
+
+                    <form id="habit-form" method="post">
+                        <div class="form-input">
+                            <label for="habit-input">Habit</label>
+                            <input id="habit-input" name="habit" required />
+                        </div>
+
+                        <div class="form-input">
+                            <label for="form-category">Category</label>
+                            <select id="form-category" name="category" required>
+                                <option value="">-- Select a category --</option>
+                                <option value="chores">Chores</option>
+                                <option value="personal-dev">Personal Development</option>
+                                <option value="health&fitness">Health & Fitness</option>
+                                <option value="Productivity">Productivity</option>
+                            </select>
+                        </div>
+
+                        <div class="form-input">
+                            <!-- <button type="submit" id="submit-form"><a href="./index.html">ADD HABIT</a></button> -->
+                            <button type="submit" id="submit-form">ADD HABIT</button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script type="module" src="./addHabit.js"></script>
+</body>
+
+</html>

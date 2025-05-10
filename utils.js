@@ -35,61 +35,31 @@ function generateID() {
   return uniqueID;
 }
 
-function totalHabits(habitsObj) {
-  let total = 0;
-  habitsObj.forEach((category) => {
-    category.habits.forEach((habit) => {
-      total += 1;
-    });
-  });
-
-  return total;
+function totalHabits(habitsArray) {
+  return habitsArray.length;
 }
 
-function streakCount(habitsObj) {
-  let total = 0;
-  const isComplete = habitsObj
-    .flatMap((category) => category.habits.map((habit) => habit.isChecked))
-    .reduce((acc, isChecked) => acc && isChecked, true);
-
-  total = isComplete ? total++ : 0;
-  return total;
+function streakCount(habitsArray) {
+  const isComplete = habitsArray.every((habit) => habit.isChecked);
+  return isComplete ? 1 : 0;
 }
 
-function missedCount(habitsObj) {
-  let total = 0;
-  total = habitsObj
-    .flatMap((category) =>
-      category.habits.map((habit) => (habit.isChecked ? 0 : 1))
-    )
-    .reduce((acc, value) => {
-      return acc + value;
-    }, 0);
-
-  return total;
+function missedCount(habitsArray) {
+  return habitsArray.filter((habit) => !habit.isChecked).length;
 }
-function checkedCount(habitsObj) {
-  let total = 0;
-  total = habitsObj
-    .flatMap((category) =>
-      category.habits.map((habit) => (habit.isChecked ? 1 : 0))
-    )
-    .reduce((acc, value) => {
-      return acc + value;
-    }, 0);
-
-  return total;
+function checkedCount(habitsArray) {
+  return habitsArray.filter((habit) => habit.isChecked).length;
 }
 
-function filterHabits(habitsObj, category) {
-  const result = habitsObj.filter(
-    (obj) => obj.category.toLowerCase() === category.toLowerCase()
+function filterHabits(habitsArray, category) {
+  return habitsArray.filter(
+    (habit) => habit.category.toLowerCase() === category.toLowerCase()
   );
-  return result;
 }
 
-function createHabitObjectBlueprint(habit, id) {
+function createHabitObjectBlueprint(habit, id, category) {
   return {
+    category: category,
     id: id,
     habit: habit,
     isChecked: false,
@@ -97,6 +67,10 @@ function createHabitObjectBlueprint(habit, id) {
       this.isChecked = !this.isChecked;
     },
   };
+}
+
+function deleteElement(habitsArray, habitID) {
+  return habitsArray.filter((habit) => habit.id !== habitID);
 }
 
 export {
@@ -108,4 +82,6 @@ export {
   checkedCount,
   generateID,
   filterHabits,
+  createHabitObjectBlueprint,
+  deleteElement,
 };

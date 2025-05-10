@@ -1,28 +1,14 @@
-import { addedHabits, stateOfElements } from "./storage.js";
+import { getLocalStorage } from "./storage.js";
+
 import {
-  getWeekDates,
-  getTodayDate,
-  generateID,
-  filterHabits,
-} from "./utils.js";
-import {
-  generateHabit,
+  generateHabits,
   showDate,
-  displayTotalHabits,
-  displayStreakCount,
-  displayCheckedCount,
-  displayMissedCount,
-  addInputListenerToChecked,
+  updateCounter,
   addListenersToFilterButtons,
-} from "./UI.js";
+} from "./habitTracker.js";
 
-const filterState = stateOfElements();
-
-// filterHabits(addedHabits.chores);
-generateHabit(addedHabits, addInputListenerToChecked);
-showDate(getTodayDate);
-displayTotalHabits(addedHabits);
-displayStreakCount(addedHabits);
-displayCheckedCount(addedHabits);
-displayMissedCount(addedHabits);
-addListenersToFilterButtons(addedHabits, filterState);
+showDate();
+const loadedHabits = getLocalStorage();
+generateHabits(loadedHabits);
+updateCounter(loadedHabits);
+addListenersToFilterButtons(loadedHabits);

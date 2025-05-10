@@ -1,74 +1,58 @@
-const addedHabits = [
-  {
-    category: "health&fitness",
-    habits: [
-      {
-        id: 1,
-        habit: "Drink water",
-        isChecked: false,
-        toggleCheckbox: function () {
-          this.isChecked = !this.isChecked;
-        },
-      },
-      {
-        id: 2,
-        habit: "Exercise for 30 minutes",
-        isChecked: false,
-        toggleCheckbox: function () {
-          this.isChecked = !this.isChecked;
-        },
-      },
-    ],
-  },
-  {
-    category: "personal-dev",
-    habits: [
-      {
-        id: 3,
-        habit: "Read for one hour",
-        isChecked: false,
-        toggleCheckbox: function () {
-          this.isChecked = !this.isChecked;
-        },
-      },
-    ],
-  },
-  {
-    category: "chores",
-    habits: [
-      {
-        id: 5,
-        habit: "Wash clothes",
-        isChecked: false,
-        toggleCheckbox: function () {
-          this.isChecked = !this.isChecked;
-        },
-      },
-      {
-        id: 6,
-        habit: "Scrub the bathroom",
-        isChecked: false,
-        toggleCheckbox: function () {
-          this.isChecked = !this.isChecked;
-        },
-      },
-    ],
-  },
-  {
-    category: "Productivity",
-    habits: [
-      {
-        id: 7,
-        habit: "Reduce screen time",
-        isChecked: false,
-        toggleCheckbox: function () {
-          this.isChecked = !this.isChecked;
-        },
-      },
-    ],
-  },
-];
-
+// const addedHabits = [
+//   {
+//     category: "health&fitness",
+//     habits: [
+//       {
+//         id: 1,
+//         habit: "Drink water",
+//         isChecked: false,
+//         toggleCheckbox: function () {
+//           this.isChecked = !this.isChecked;
+//         },
+//       },
+//     ],
+//   },
+//   {
+//     category: "personal-dev",
+//     habits: [
+//       {
+//         id: 3,
+//         habit: "Read for one hour",
+//         isChecked: false,
+//         toggleCheckbox: function () {
+//           this.isChecked = !this.isChecked;
+//         },
+//       },
+//     ],
+//   },
+//   {
+//     category: "chores",
+//     habits: [
+//       {
+//         id: 5,
+//         habit: "Wash clothes",
+//         isChecked: false,
+//         toggleCheckbox: function () {
+//           this.isChecked = !this.isChecked;
+//         },
+//       },
+//     ],
+//   },
+//   {
+//     category: "Productivity",
+//     habits: [
+//       {
+//         id: 7,
+//         habit: "Reduce screen time",
+//         isChecked: false,
+//         toggleCheckbox: function () {
+//           this.isChecked = !this.isChecked;
+//         },
+//       },
+//     ],
+//   },
+// ];
+const addedHabits = [];
 const habitsTracked = [];
 
 function stateOfElements(initialState = false) {
@@ -87,4 +71,35 @@ function stateOfElements(initialState = false) {
     },
   };
 }
-export { addedHabits, stateOfElements, habitsTracked };
+
+function setLocalStorage(habitsArray) {
+  localStorage.setItem("habits", JSON.stringify(habitsArray));
+}
+
+const restoreMethods = (habits) => {
+  habits.forEach((habit) => {
+    habit.toggleCheckbox = function () {
+      this.isChecked = !this.isChecked;
+    };
+  });
+  return habits;
+};
+
+function getLocalStorage() {
+  let loadedHabits;
+  let data = JSON.parse(localStorage.getItem("habits"));
+  if (data) {
+    loadedHabits = restoreMethods(data);
+  } else {
+    loadedHabits = [];
+  }
+  return loadedHabits;
+}
+
+export {
+  addedHabits,
+  stateOfElements,
+  habitsTracked,
+  setLocalStorage,
+  getLocalStorage,
+};

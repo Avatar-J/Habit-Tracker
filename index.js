@@ -1,11 +1,14 @@
-import { habits } from "./storage.js";
-import { getWeekDates, getTodayDate } from "./utils.js";
-import { generateHabit, showDate } from "./UI.js";
+import { getLocalStorage } from "./storage.js";
 
-const tableHead = document.getElementById("table-header");
+import {
+  generateHabits,
+  showDate,
+  updateCounter,
+  addListenersToFilterButtons,
+} from "./habitTracker.js";
 
-// generateTableHead();
-
-// generateTableBody();
-generateHabit(habits);
-showDate(getTodayDate);
+showDate();
+const loadedHabits = getLocalStorage();
+generateHabits(loadedHabits);
+updateCounter(loadedHabits);
+addListenersToFilterButtons(loadedHabits);

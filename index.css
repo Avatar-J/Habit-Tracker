@@ -7,12 +7,16 @@
 :root {
     --bg-light: white;
     --bg-dark: black;
+    --bg-light: white;
+    --bg-dark: black;
     --primary-color: #2563EB;
+    --text-primary: black;
+    --text-secondary: white;
     --text-primary: black;
     --text-secondary: white;
     --accent: #FF7F50;
     --danger: rgb(230, 49, 49);
-    --main-header: 64px;
+    --main-header: 58px;
     --main-header-2: 48px;
     --main-header-3: 30px;
     --sub-header: 32px;
@@ -20,6 +24,7 @@
     --sub-header-2: 22px;
     --date-font: 80px;
     --text-size: 18px;
+    --icon-size: 40px;
 }
 
 body,
@@ -32,28 +37,33 @@ button {
 }
 
 body {
-    min-height: 100vh;
+    /* min-height: 100vh; */
     display: flex;
     justify-content: center;
-    overflow-y: hidden;
+    /* overflow-y: hidden; */
 
 }
 
 main {
     margin-top: 40px;
     display: flex;
-    gap: 50px;
+    gap: 80px;
     position: relative;
 
 }
 
 
 .wrapper {
+    min-height: 100vh;
     margin: 20px;
     width: 1200px;
     position: relative;
-    z-index: -1;
     background-color: var(--bg-light);
+}
+
+a {
+    text-decoration: none;
+    color: var(--text-secondary);
 }
 
 .overlay {
@@ -63,7 +73,7 @@ main {
     bottom: 0;
     left: 0;
     right: 0;
-    z-index: 99;
+    z-index: 999;
     background-color: rgba(255, 255, 255, 1);
     opacity: 1;
     display: flex;
@@ -71,15 +81,32 @@ main {
     align-items: center;
 }
 
+.modal-container {
+    display: flex;
+    /* align-items: center; */
+    justify-content: center;
+    width: 100%;
+
+}
+
 .modal {
-    width: 70%;
-    height: 400px;
-    background-color: var(--bg-light);
+    width: 60%;
+    min-height: 700px;
+    /* background-color: var(--bg-light);
+     */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
 }
 
 .modal-header {
     display: flex;
+    /* align-items: center; */
     justify-content: space-between;
+    gap: 20px;
+    width: 60%;
 }
 
 #close-modal {
@@ -89,11 +116,18 @@ main {
 }
 
 .form-input {
+    width: 100%;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+}
+
+form button {
+    padding: 20px;
 }
 
 #submit-form {
+    width: 100%;
     background-color: var(--text-primary);
     color: var(--text-secondary);
 }
@@ -109,6 +143,7 @@ form {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    width: 60%;
 }
 
 .hidden {
@@ -123,17 +158,21 @@ option {
     border: none;
     outline: none;
     border: 2px solid var(--text-primary);
-    font-size: var(--text-size);
-
+    font-size: 15px;
+    font-family: "Roboto", sans-serif;
 }
 
+option {
+    color: var(--text-primary);
+    background-color: white;
+}
 
 
 header {
     display: flex;
     justify-content: space-between;
-    padding: 20px;
-    margin-bottom: 20px;
+    padding: 10px;
+    margin-bottom: 10px;
     background-color: black;
     color: var(--text-secondary);
     /* position: sticky;
@@ -161,6 +200,16 @@ button {
     color: var(--accent);
 }
 
+#avatar {
+    color: var(--text-secondary);
+    border-radius: 40%;
+}
+
+#avatar:hover {
+    /* background-color: var(--text-secondary); */
+    color: var(--accent);
+}
+
 h1 {
     font-size: var(--main-header);
     text-align: center;
@@ -169,14 +218,17 @@ h1 {
 h2 {
     font-size: var(--sub-header);
     margin-bottom: 5px;
+    font-size: var(--sub-header);
+    margin-bottom: 5px;
 }
 
 h4 {
     font-size: var(--sub-header);
+    font-size: var(--sub-header);
 }
 
 .right {
-    width: 60%;
+    width: 65%;
 }
 
 .left {
@@ -185,23 +237,41 @@ h4 {
 
 .scrollable-div {
     height: 600px;
+    height: 600px;
     width: 100%;
     overflow: hidden;
+    /* border: 1px solid black; */
 
+}
+
+.no-habits {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.no-habits p {
+    font-size: var(--sub-header);
+    color: grey;
+}
+
+.habit-header-content {
+    width: 95%;
 }
 
 #habits-section {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     gap: 20px;
-    height: 600px;
-    /* background-color: #2563EB; */
+    height: 400px;
     overflow: hidden;
     overflow-y: auto;
-    padding-top: 500px;
-    padding-bottom: 50px;
+    padding-top: 20px;
+    padding-bottom: 20px;
     padding-right: 50px;
 
 }
@@ -217,10 +287,12 @@ h4 {
 
 #habits-section::-webkit-scrollbar-thumb {
     background: var(--text-primary);
+    background: var(--text-primary);
     border-radius: 4px;
 }
 
 #habits-section::-webkit-scrollbar-thumb:hover {
+    background: var(--text-primary);
     background: var(--text-primary);
 }
 
@@ -235,6 +307,7 @@ h4 {
     align-items: center;
     border-radius: 10px;
     padding-inline: 20px;
+    color: var(--text-primary);
     color: var(--text-primary);
 }
 
@@ -269,6 +342,7 @@ h4 {
     width: 200px;
     height: 200px;
     background-color: var(--bg-dark);
+    background-color: var(--bg-dark);
     border-radius: 20px;
     display: flex;
     justify-content: center;
@@ -277,6 +351,7 @@ h4 {
     padding: 10px;
     position: relative;
     border: 1px solid black;
+    color: var(--text-secondary);
     color: var(--text-secondary);
 }
 
@@ -287,6 +362,7 @@ h4 {
     width: 100%;
     height: 1px;
     background: var(--text-secondary);
+    background: var(--text-secondary);
     transform: translateY(-50%);
 }
 
@@ -295,6 +371,7 @@ h4 {
     font-size: var(--date-font);
     font-weight: 900;
     position: absolute;
+    color: var(--text-secondary);
     color: var(--text-secondary);
 }
 
@@ -307,11 +384,13 @@ h4 {
 
 .tracker {
     margin-top: 30px;
+    margin-top: 30px;
     width: 100%;
     display: flex;
     flex-direction: column;
     gap: 20px;
     font-size: var(--text-size);
+    padding: 5px;
     padding: 5px;
 
 }
@@ -328,7 +407,21 @@ h4 {
     padding-inline: 10px;
 }
 
+.add-habit-container {
+    display: flex;
+    align-items: right;
+    justify-content: center;
+    width: 40%;
+}
+
+h3 {
+    font-size: var(--text-size);
+}
+
 .tracker-card {
+    width: 170px;
+    height: 150px;
+    box-shadow: 0 0 3px 2px rgb(0, 0, 0, 0.2);
     width: 170px;
     height: 150px;
     box-shadow: 0 0 3px 2px rgb(0, 0, 0, 0.2);
@@ -337,6 +430,7 @@ h4 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    font-size: 30px;
 }
 
 .total-habits {
@@ -363,15 +457,18 @@ input[type="checkbox"] {
     appearance: none;
     -webkit-appearance: none;
     border: 1px solid var(--text-primary);
+    border: 1px solid var(--text-primary);
     width: 22px;
     height: 22px;
     border-radius: 5px;
     align-items: center;
     color: var(--text-primary);
+    color: var(--text-primary);
     cursor: pointer;
 }
 
 input[type="checkbox"]:checked {
+    background-color: var(--accent);
     background-color: var(--accent);
     background-image: url("./assets/icon-check.svg");
     background-position: center;
@@ -393,6 +490,7 @@ input[type="checkbox"]:checked {
 .category {
     width: 150px;
     /* margin: 10px; */
+    /* margin: 10px; */
     padding: 5px;
     border: 2px solid black;
     border-radius: 10px;
@@ -406,11 +504,18 @@ input[type="checkbox"]:checked {
     color: var(--text-primary);
 }
 
+.active {
+    background-color: var(--text-secondary);
+    color: var(--text-primary);
+}
+
 .add-habit-button {
     background-color: var(--text-primary);
     color: var(--text-secondary);
+    background-color: var(--text-primary);
+    color: var(--text-secondary);
     font-size: var(--text-size);
-    margin-top: 20px;
+    margin-top: 5px;
     padding-inline: 40px;
     border-radius: 10px;
 }

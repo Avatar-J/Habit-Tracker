@@ -20,11 +20,68 @@ function getWeekDates() {
 function getTodayDate() {
   const today = new Date();
 
-  const dayWord = today.toLocaleDateString("en-US", { weekday: "long" });
-  const month = String(today.getMonth() + 1).padStart(2, "0");
-  const dayNum = String(today.getDate()).padStart(2, "0");
+  const day = today.toLocaleDateString("en-US", { weekday: "long" });
+  const mm = String(today.getMonth() + 1).padStart(2, "0");
+  const dd = String(today.getDate()).padStart(2, "0");
+  const yy = today.getFullYear();
+  const date = `${dd}-${mm}-${yy}`;
 
-  return { dayWord, month, dayNum };
+  return { day, mm, dd, yy, date };
 }
 
-export { getWeekDates, getTodayDate };
+function generateID() {
+  const today = new Date();
+  const uniqueID = today.getTime();
+  return uniqueID;
+}
+
+function totalHabits(habitsArray) {
+  return habitsArray.length;
+}
+
+function streakCount(habitsArray) {
+  const isComplete = habitsArray.every((habit) => habit.isChecked);
+  return isComplete ? 1 : 0;
+}
+
+function missedCount(habitsArray) {
+  return habitsArray.filter((habit) => !habit.isChecked).length;
+}
+function checkedCount(habitsArray) {
+  return habitsArray.filter((habit) => habit.isChecked).length;
+}
+
+function filterHabits(habitsArray, category) {
+  return habitsArray.filter(
+    (habit) => habit.category.toLowerCase() === category.toLowerCase()
+  );
+}
+
+function createHabitObjectBlueprint(habit, id, category) {
+  return {
+    category: category,
+    id: id,
+    habit: habit,
+    isChecked: false,
+    toggleCheckbox: function () {
+      this.isChecked = !this.isChecked;
+    },
+  };
+}
+
+function deleteElement(habitsArray, habitID) {
+  return habitsArray.filter((habit) => habit.id !== habitID);
+}
+
+export {
+  getWeekDates,
+  getTodayDate,
+  totalHabits,
+  streakCount,
+  missedCount,
+  checkedCount,
+  generateID,
+  filterHabits,
+  createHabitObjectBlueprint,
+  deleteElement,
+};

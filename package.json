@@ -1,0 +1,36 @@
+{
+  "name": "habit-tracker",
+  "version": "1.0.0",
+  "description": "A simple and interactive habit tracker app that helps users build consistency by logging, tracking, and monitoring daily habits. Data is stored locally in the browser using `localStorage`.",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "type": "module",
+  "scripts": {
+    "test": "jest --coverage"
+  },
+  "jest": {
+    "testEnvironment": "jsdom"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Avatar-J/Habit-Tracker.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Avatar-J/Habit-Tracker/issues"
+  },
+  "homepage": "https://github.com/Avatar-J/Habit-Tracker#readme",
+  "dependencies": {
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.27.1",
+    "@babel/preset-env": "^7.27.2",
+    "babel-jest": "^29.7.0"
+  }
+}

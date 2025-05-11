@@ -11,6 +11,7 @@ function getWeekDates() {
     const day = date.toLocaleDateString("en-US", { weekday: "short" });
     const dayNum = date.getDate();
 
+    // dates = [...dates, { [day]: dayNum }];
     dates.push({ [day]: dayNum });
   }
 

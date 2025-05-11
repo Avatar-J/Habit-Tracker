@@ -213,4 +213,18 @@ function updateCounter(habitsArray) {
   displayStreakCount(habitsArray);
 }
 
-export { generateHabits, showDate, updateCounter, addListenersToFilterButtons };
+export {
+  generateHabits,
+  showDate,
+  updateCounter,
+  addListenersToFilterButtons,
+  addInputListenerToChecked,
+  addListenerToDelete,
+  displayTotalHabits,
+  displayCheckedCount,
+  displayMissedCount,
+  displayStreakCount,
+  addActiveClass,
+  generateHabitForFiltered,
+  createHtmlCard,
+};

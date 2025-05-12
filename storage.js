@@ -96,6 +96,16 @@ function getLocalStorage() {
   return loadedHabits;
 }
 
+function setLocalStorgeForStreaks(streak) {
+  localStorage.setItem("streaks", JSON.stringify(streak));
+}
+function getLocalStorageForStreak() {
+  let loadedStreaks;
+  let data = JSON.parse(localStorage.getItem("streaks"));
+  loadedStreaks = data ? data : [];
+  return loadedStreaks;
+}
+
 export {
   addedHabits,
   stateOfElements,
